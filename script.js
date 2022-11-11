@@ -1,10 +1,12 @@
 // Assignment code here
+var guaranteedString = '';
+var blankString = '';
 
-var lowercaseString = 'abcdefghijklmnopqrstuvwxyz'; // length = 26
-var uppercaseString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // length = 26
-var lowUp = randomString1 + randomString2; // length = 52
-// var randomString3 = '0123456789'; // length = 10
-// var randomString4 = " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+var lowercaseString = 'abcdefghijklmnopqrstuvwxyz';
+var uppercaseString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+var numberString = '0123456789';
+var specialString = " \!\"\#\$\%\&\'\(\)\*\+\,\-\.\/\:\;\<\=\>\?\@\[\]^\_\`\{\|\}\~";
+// console.log(specialString);
 
 function generatePassword() {
     let passLength = window.prompt('Enter the number of characters for your password:');
@@ -19,34 +21,71 @@ function generatePassword() {
     }
     if (!passLength) {
         window.alert('Password length must be entered as a number.');
+
     } else {
-        let lowercaseChar = window.confirm('Click OK to confirm including lowercase characters.');
-        let uppercaseChar = window.confirm('Click OK to confirm including uppercase characters.');
-        // number = window.confirm('Click OK to confirm including numbers.');
-        // specialChar = window.confirm('Click OK to confirm including special characters.');
+        let lowercase = window.confirm('Click OK to confirm including lowercase characters.');
+        if (lowercase === true) {
+            let randomNumber = Math.floor(Math.random() * lowercaseString.length);
+            let guaranteed = lowercaseString.charAt(randomNumber);
+            guaranteedString += guaranteed;
+            console.log(guaranteedString);
 
-        if (lowercaseChar === true) {
-            var result = '';
-            for (let i = 0; i < passLength; i++) {
-                let randomNumber = Math.floor(Math.random() * 26);
-                console.log(randomNumber);
-                let randomChar = randomString1.charAt(randomNumber);
-                console.log(randomChar);
-                result += randomChar;
-            }
-            return result;
+            blankString += lowercaseString;
         }
 
-        if (uppercaseChar === true) {
-            var result = '';
-            for (let i = 0; i < passLength; i++) {
-                let randomNumber = Math.floor(Math.random() * 26);
-                let randomChar = randomString2.charAt(randomNumber);
-                console.log(randomChar);
-                result += randomChar;
-            }
-            return result;
+        let uppercase = window.confirm('Click OK to confirm including uppercase characters.');
+        if (uppercase === true) {
+            let randomNumber = Math.floor(Math.random() * uppercaseString.length);
+            let guaranteed = uppercaseString.charAt(randomNumber);
+            guaranteedString += guaranteed;
+            console.log(guaranteedString);
+
+            blankString += uppercaseString;
         }
+
+        number = window.confirm('Click OK to confirm including numbers.');
+        if (number === true) {
+            let randomNumber = Math.floor(Math.random() * numberString.length);
+            let guaranteed = numberString.charAt(randomNumber);
+            guaranteedString += guaranteed;
+            console.log(guaranteedString);
+            
+            blankString += numberString;
+        }
+
+        special = window.confirm('Click OK to confirm including special characters.');
+        if (special === true) {
+            let randomNumber = Math.floor(Math.random() * specialString.length);
+            let guaranteed = specialString.charAt(randomNumber);
+            guaranteedString += guaranteed;
+            console.log(guaranteedString);
+            
+            blankString += specialString;
+        }
+
+        var result = '';
+        result += guaranteedString;
+        console.log(result);
+        console.log(result.length);
+        newLength = passLength - result.length;
+        console.log(newLength);
+
+        // maybe make if statements and i would loop until whatever length-??
+        // if (lowercase === true) {
+        //     for (let i = 0; i < passLength; i++) {
+        //         let randomNumber = Math.floor(Math.random() * blankString.length);
+        //         let randomChar = blankString.charAt(randomNumber);
+        //         result += randomChar;
+        //     }
+        // }
+
+        for (let i = 0; i < newLength; i++) {
+            let randomNumber = Math.floor(Math.random() * blankString.length);
+            let randomChar = blankString.charAt(randomNumber);
+            result += randomChar;
+        }
+        
+        return result;
     }
 }
 
