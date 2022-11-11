@@ -24,6 +24,20 @@ function generatePassword() {
 
     } else {
         let lowercase = window.confirm('Click OK to confirm including lowercase characters.');
+        let uppercase = window.confirm('Click OK to confirm including uppercase characters.');
+        let number = window.confirm('Click OK to confirm including numbers.');
+        let special = window.confirm('Click OK to confirm including special characters.');
+
+        if (
+            lowercase === false && 
+            uppercase === false && 
+            number === false && 
+            special === false
+            ) {
+                window.alert('Must select at least one character type.');
+                return null;
+            }
+
         if (lowercase === true) {
             let randomNumber = Math.floor(Math.random() * lowercaseString.length);
             let guaranteed = lowercaseString.charAt(randomNumber);
@@ -33,7 +47,6 @@ function generatePassword() {
             blankString += lowercaseString;
         }
 
-        let uppercase = window.confirm('Click OK to confirm including uppercase characters.');
         if (uppercase === true) {
             let randomNumber = Math.floor(Math.random() * uppercaseString.length);
             let guaranteed = uppercaseString.charAt(randomNumber);
@@ -43,7 +56,6 @@ function generatePassword() {
             blankString += uppercaseString;
         }
 
-        number = window.confirm('Click OK to confirm including numbers.');
         if (number === true) {
             let randomNumber = Math.floor(Math.random() * numberString.length);
             let guaranteed = numberString.charAt(randomNumber);
@@ -53,7 +65,6 @@ function generatePassword() {
             blankString += numberString;
         }
 
-        special = window.confirm('Click OK to confirm including special characters.');
         if (special === true) {
             let randomNumber = Math.floor(Math.random() * specialString.length);
             let guaranteed = specialString.charAt(randomNumber);
