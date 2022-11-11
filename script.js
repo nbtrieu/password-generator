@@ -70,15 +70,6 @@ function generatePassword() {
         newLength = passLength - result.length;
         console.log(newLength);
 
-        // maybe make if statements and i would loop until whatever length-??
-        // if (lowercase === true) {
-        //     for (let i = 0; i < passLength; i++) {
-        //         let randomNumber = Math.floor(Math.random() * blankString.length);
-        //         let randomChar = blankString.charAt(randomNumber);
-        //         result += randomChar;
-        //     }
-        // }
-
         for (let i = 0; i < newLength; i++) {
             let randomNumber = Math.floor(Math.random() * blankString.length);
             let randomChar = blankString.charAt(randomNumber);
