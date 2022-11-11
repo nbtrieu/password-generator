@@ -1,7 +1,4 @@
 // Assignment code here
-var guaranteedString = '';
-var blankString = '';
-
 var lowercaseString = 'abcdefghijklmnopqrstuvwxyz';
 var uppercaseString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
 var numberString = '0123456789';
@@ -37,11 +34,15 @@ function generatePassword() {
                 window.alert('Must select at least one character type.');
                 return null;
             }
+        
+        var guaranteedString = '';
+        var blankString = '';
 
         if (lowercase === true) {
             let randomNumber = Math.floor(Math.random() * lowercaseString.length);
             let guaranteed = lowercaseString.charAt(randomNumber);
             guaranteedString += guaranteed;
+            console.log('guarantee string lowercase');
             console.log(guaranteedString);
 
             blankString += lowercaseString;
@@ -51,6 +52,7 @@ function generatePassword() {
             let randomNumber = Math.floor(Math.random() * uppercaseString.length);
             let guaranteed = uppercaseString.charAt(randomNumber);
             guaranteedString += guaranteed;
+            console.log('guarantee string uppercase');
             console.log(guaranteedString);
 
             blankString += uppercaseString;
@@ -60,6 +62,7 @@ function generatePassword() {
             let randomNumber = Math.floor(Math.random() * numberString.length);
             let guaranteed = numberString.charAt(randomNumber);
             guaranteedString += guaranteed;
+            console.log('guarantee string number');
             console.log(guaranteedString);
             
             blankString += numberString;
@@ -69,6 +72,7 @@ function generatePassword() {
             let randomNumber = Math.floor(Math.random() * specialString.length);
             let guaranteed = specialString.charAt(randomNumber);
             guaranteedString += guaranteed;
+            console.log('guarantee string special');
             console.log(guaranteedString);
             
             blankString += specialString;
@@ -86,7 +90,8 @@ function generatePassword() {
             let randomChar = blankString.charAt(randomNumber);
             result += randomChar;
         }
-        
+        console.log("result");
+        console.log(result);
         return result;
     }
 }
